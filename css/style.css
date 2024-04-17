@@ -1,3 +1,9 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+
 body{
     /* background-color: black;
     color: white; */
@@ -5,7 +11,19 @@ body{
 
 .left{
     width: 23vw;
+    padding: 5px;
 }
 .right{
     width: 77vw;
+}
+
+.home{
+    padding: 12px;
+}
+.home ul li{
+ display: flex;
+ gap: 16px;
+ list-style: none;
+ width: 22px;
+ padding-top: 25px;
 }
