@@ -10,6 +10,7 @@
 body{
     background-color: black;
     color: white;
+    display: flex;
 }
 
 .left{
@@ -18,6 +19,7 @@ body{
 }
 .right{
     width: 77vw;
+     padding: 5px
 }
 
 .home{
@@ -64,4 +66,14 @@ body{
 .footer a {
     color: grey;
     text-decoration: none;
+}
+
+
+.header{
+    display: flex;
+    justify-content: space-between;
+}
+
+.header > *{
+    padding: 12px;
 }

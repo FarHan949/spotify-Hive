@@ -26,6 +26,10 @@
     background-color: #121212;
 }
 
+.bg-grey-2{
+    background-color: #101010;
+}
+
 .rounded{
     border-radius: 8px;
 }
