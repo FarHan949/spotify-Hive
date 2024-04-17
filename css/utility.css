@@ -33,3 +33,11 @@
 .m-1{
     margin: 5px;
 }
+
+.p-1{
+    padding: 10px;
+}
+.px-1{
+  padding-left: 20px;
+  padding-top: 16px;
+}

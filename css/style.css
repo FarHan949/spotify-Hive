@@ -1,12 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+
 *{
     margin: 0;
     padding: 0;
+    font-family: "Roboto", sans-serif
 }
 
 
 body{
-    /* background-color: black;
-    color: white; */
+    background-color: black;
+    color: white;
 }
 
 .left{
@@ -18,12 +21,47 @@ body{
 }
 
 .home{
-    padding: 12px;
+    
 }
 .home ul li{
  display: flex;
  gap: 16px;
  list-style: none;
- width: 22px;
+ width: 23px;
  padding-top: 25px;
+ font-weight: bold;
+ font-size: 16px;
+}
+
+.library{
+    padding-top: 5px;
+    min-height: 80vh;
+    position: relative;
+}
+.heading{
+ display: flex;
+ gap: 10px;
+ width: 100%;
+ padding-top: 14px;
+ font-weight: bold;
+ font-size: 14px;
+}
+
+.heading img{
+    width: 23px;
+}
+
+.footer{
+    display: flex;
+    font-size: 11px;
+    gap: 10px;
+    color: gray;
+    position: absolute;
+    bottom: 0;
+    display: grid;
+    grid-template-columns: repeat(3, auto); 
+}
+.footer a {
+    color: grey;
+    text-decoration: none;
 }
