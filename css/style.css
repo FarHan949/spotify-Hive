@@ -194,8 +194,8 @@ body{
 .playbar{
     position: absolute;
     bottom: 50px;
-    width: 100%;
-    background-color: aquamarine;
+    width: 90%;
+    background-color: rgb(204, 223, 217);
     padding: 12px;
 }
 
@@ -204,4 +204,12 @@ body{
     justify-content: center;
     gap: 16px;
     height: 30px;
+}
+
+.songlist ul{
+    padding: 10px 20px;
+}
+
+.songlist ul li{
+    list-style-type: decimal;
 }
