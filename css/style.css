@@ -11,6 +11,7 @@ body{
     background-color: black;
     color: white;
     display: flex;
+    overflow-x: hidden;
 }
 
 .left{
@@ -19,7 +20,8 @@ body{
 }
 .right{
     width: 77vw;
-     padding: 5px
+    padding: 5px;
+    position: relative;
 }
 
 
@@ -131,7 +133,7 @@ body{
 
 .cardContainer{
     display: flex;
-    gap: 10px;
+    gap: 8px;
     margin: 20px;
     flex-wrap: wrap;
     overflow-y: scroll;
@@ -185,4 +187,20 @@ body{
     font-size: 14px;
     font-weight: 400;
     color: #a4a4a4;
+}
+
+
+.playbar{
+    position: absolute;
+    bottom: 50px;
+    width: 100%;
+    background-color: aquamarine;
+    padding: 12px;
+}
+
+.songsbutton{
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    height: 30px;
 }
