@@ -147,6 +147,7 @@ body{
     display: flex;
     width: 180px;
     position: relative;
+    cursor: pointer;
 }
 
 .card > h2, p{
