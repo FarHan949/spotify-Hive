@@ -21,7 +21,12 @@ async function getSong(){
 }
 
 async function main(){
+    // get the list of the all song 
     let song = await getSong()
     console.log(song)
+
+    // play the first song 
+    var audio = new Audio(song[0])
+    audio.play()
 }
 main()
