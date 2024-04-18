@@ -26,7 +26,11 @@ async function main(){
     console.log(song)
 
     // play the first song 
-    var audio = new Audio(song[0])
+    var audio = new Audio(song[4])
     audio.play()
+
+    audio.addEventListener("loadeddata", ()=>{
+        console.log(audio.duration, audio.currentSrc, audio.currentTime)
+    })
 }
 main()
