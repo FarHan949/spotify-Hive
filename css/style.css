@@ -22,6 +22,10 @@ body{
      padding: 5px
 }
 
+
+
+
+/* left side container part  */
 .home{
     
 }
@@ -70,15 +74,57 @@ body{
 }
 
 
+
+
+/* right side header part  */
 .header{
     display: flex;
     justify-content: space-between;
+    height: 60px;
 }
 
 .header > *{
     padding: 12px;
 }
 
+.buttons > *{
+    margin: 0 12px;
+}
+.signbtn{
+    background-color: #101010;
+    color: #a4a4a4;
+    font-weight: bold;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    cursor: pointer;
+    /* margin-right:  20px; */
+}
+.signbtn:hover{
+    color: white;
+    font-size: 17px;
+}
+
+
+.loginbtn{
+    background-color: white;
+    border: none;
+    border-radius: 22px;
+    color: black;
+    font-weight: bold;
+    padding: 10px;
+    width: 80px;
+    font-size: 16px;
+    cursor: pointer;
+}
+.loginbtn:hover{
+    font-weight: bold;
+    width: 83px;
+    font-size: 17px;
+}
+
+
+/* right side playlist container part  */
 .spotifyPlaylist{
     padding: 5px;
 }
@@ -86,8 +132,10 @@ body{
 .cardContainer{
     display: flex;
     gap: 10px;
-    margin: 30px;
+    margin: 20px;
     flex-wrap: wrap;
+    overflow-y: scroll;
+    max-height: 70vh;
 }
 .card{
     /* background-color: #161212; */
@@ -95,7 +143,7 @@ body{
     border-radius: 8px;
     flex-direction: column;
     display: flex;
-    width: 190px;
+    width: 180px;
     position: relative;
 }
 
