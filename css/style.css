@@ -267,4 +267,5 @@ body{
     position: relative;
     bottom: 6px;
     left: -2px;
+    transition: left 0.5s;
 }
