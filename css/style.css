@@ -207,7 +207,7 @@ body{
 }
 
 .songlist{
-    height: 300px;
+    height: 350px;
     overflow: auto;
 }
 .songlist ul{
