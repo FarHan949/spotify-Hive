@@ -82,12 +82,12 @@ body{
 .header{
     display: flex;
     justify-content: space-between;
-    height: 60px;
+    height: 45px;
 }
 
-.header > *{
+/* .header > *{
     padding: 12px;
-}
+} */
 
 .buttons > *{
     margin: 0 12px;
@@ -192,10 +192,10 @@ body{
 
 
 .playbar{
-    position: absolute;
-    bottom: 50px;
-    width: 90%;
-    background-color: rgb(204, 223, 217);
+    position: fixed;
+    bottom: 30px;
+    width: 75vw;
+    background-color: lightblue;
     padding: 12px;
 }
 
@@ -209,6 +209,7 @@ body{
 .songlist{
     height: 350px;
     overflow: auto;
+    margin-bottom:44px ;
 }
 .songlist ul{
     padding: 0 10px;
