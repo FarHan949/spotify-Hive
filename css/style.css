@@ -192,11 +192,14 @@ body{
 
 
 .playbar{
+    background-color: #e2e3e3;
+    filter: invert(1);
     position: fixed;
-    bottom: 30px;
-    width: 75vw;
-    background-color: lightblue;
+    height: 40px;
+    bottom: 20px;
+    width: 72vw;
     padding: 12px;
+    border-radius: 10px;
 }
 
 .songsbutton{
@@ -243,4 +246,25 @@ body{
     width: 45px;
     padding: 10px;
 }
-   
+
+
+
+.seekbar{
+    width: 97%;
+    height: 2px;
+    background-color:  black;
+    border-radius: 10px;
+    position: absolute;
+    bottom: 0;
+    margin: 10px;
+}
+
+.circle{
+    width: 14px;
+    height: 14px;
+    border-radius: 15px;
+    background-color: black;
+    position: relative;
+    bottom: 6px;
+    left: -2px;
+}

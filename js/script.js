@@ -8,7 +8,6 @@ async function getSong(){
     let div = document.createElement('div')
     div.innerHTML = response
     let anchor  = div.getElementsByTagName("a")
-    // console.log(anchor)
 
     let songs = []
     for (let index = 0; index < anchor.length; index++) {
@@ -24,12 +23,14 @@ async function getSong(){
 async function main(){
     // get the list of the all song 
     let songs = await getSong()
-    console.log(songs)
+    // console.log(songs)
 
+
+    // show all the song in the playlist 
     let songUl = document.querySelector('.songlist').getElementsByTagName('ul')[0]
     for (const song of songs) {
-        songUl.innerHTML = songUl.innerHTML +  `<li>
-                        <img class="invert" src="svg/music.svg" alt="">
+        songUl.innerHTML = songUl.innerHTML +  `
+                        <li><img class="invert" src="svg/music.svg" alt="">
                         <div class="info">
                             <div>${song.replaceAll("%20"," ")}</div>
                             <div>Farhan</div>
@@ -37,16 +38,9 @@ async function main(){
                         <div class="playnow">
                             <span>Play Now</span>
                             <img class="invert" src="svg/play.svg" alt="">
-                        </div>
-                     </li>`
+                        </div></li>`
     }
-    // play the first song 
-    var audio = new Audio(songs[4])
-    // audio.play()
-
-    audio.addEventListener("loadeddata", ()=>{
-        console.log(audio.duration, audio.currentSrc, audio.currentTime)
-    })
+   
 }
 
 main()
