@@ -1,5 +1,9 @@
 console.log('lets go')
 
+//  global Variable
+let currentSong = new Audio();
+
+// get song function 
 async function getSong(){
     let a = await fetch("http://127.0.0.1:5500/song/")
     let response = await a.text()
@@ -20,14 +24,17 @@ async function getSong(){
 }
 
 
+// play audio function 
 const playMusic= (audio) =>{
-    let track = new Audio("/song/" + audio)
-    track.play()
+    // let track = new Audio("/song/" + audio)
+    currentSong.src = "/song/" + audio
+    currentSong.play()
 }
+
+
 
 async function main(){
 
-    let currentSong;
     // get the list of the all song 
     let songs = await getSong()
     // console.log(songs)
