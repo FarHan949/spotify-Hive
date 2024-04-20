@@ -278,3 +278,18 @@ body{
     transition: left 0.5s;
 }
 
+.songinfo{
+    width: 180px;
+    font-size: 10px
+}
+
+.songinfo, .songtime{
+    color: black;
+    padding: 0 10px;
+}
+
+
+.bar{
+    display: flex;
+    justify-content: space-between;
+}

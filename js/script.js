@@ -29,10 +29,14 @@ const playMusic= (audio) =>{
     // let track = new Audio("/song/" + audio)
     currentSong.src = "/song/" + audio
     currentSong.play()
+    play.src = "svg/pause.svg"
+    document.querySelector('.songinfo').innerHTML = audio
+    document.querySelector('.songtime').innerHTML = "00:00 / 00:00"
 }
 
 
 
+// main logic here 
 async function main(){
 
     // get the list of the all song 
@@ -63,7 +67,23 @@ async function main(){
            playMusic(e.querySelector(".info").firstElementChild.innerText)
        })
    })
-   
+
+// Add event listener to each song next and previous 
+    play.addEventListener("click", ()=>{
+        if(currentSong.paused){
+            currentSong.play()
+            play.src = "svg/pause.svg"
+        }
+        else{
+            currentSong.pause()
+            play.src = "svg/play.svg"
+        }
+    })  
+      
+
+//   Time update event 
+
+
 }
 
 main()
