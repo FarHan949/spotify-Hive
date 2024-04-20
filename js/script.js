@@ -36,13 +36,28 @@ const playMusic= (audio) =>{
 
 
 
+function secondsToMinutes(seconds) {
+    // Calculate minutes and remaining seconds
+    var minutes = Math.floor(seconds / 60);
+    var remainingSeconds = seconds % 60;
+
+    // Format minutes and seconds with leading zeros if needed
+    var formattedMinutes = minutes < 10 ? '0' + minutes : minutes;
+    var formattedSeconds = remainingSeconds < 10 ? '0' + remainingSeconds : remainingSeconds;
+
+    // Return the formatted string
+    return formattedMinutes + ':' + formattedSeconds;
+}
+
+
+
 // main logic here 
 async function main(){
+
 
     // get the list of the all song 
     let songs = await getSong()
     // console.log(songs)
-
 
     // show all the song in the playlist 
     let songUl = document.querySelector('.songlist').getElementsByTagName('ul')[0]
@@ -59,6 +74,7 @@ async function main(){
                         </div></li>`
     }
 
+
     // Add event listener to each song
    Array.from(document.querySelector(".songlist").getElementsByTagName("li")).forEach( e =>{
        e.addEventListener('click', element=>{
@@ -67,6 +83,7 @@ async function main(){
            playMusic(e.querySelector(".info").firstElementChild.innerText)
        })
    })
+
 
 // Add event listener to each song next and previous 
     play.addEventListener("click", ()=>{
@@ -81,9 +98,21 @@ async function main(){
     })  
       
 
-//   Time update event 
 
+//   Time update event 
+      currentSong.addEventListener("timeupdate", ()=>{
+          console.log(parseInt(currentSong.currentTime))
+
+          if(!isNaN(currentSong.duration)){
+            
+              document.querySelector(".songtime").innerHTML = `
+              ${secondsToMinutes(parseInt(currentSong.currentTime))}/
+              ${secondsToMinutes(parseInt(currentSong.duration))}`
+
+          }
+      })
 
 }
+
 
 main()
