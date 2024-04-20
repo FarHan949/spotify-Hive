@@ -259,12 +259,13 @@ body{
 
 .seekbar{
     width: 97%;
-    height: 2px;
+    height: 3px;
     background-color:  black;
     border-radius: 10px;
     position: absolute;
     bottom: 0;
     margin: 10px;
+    cursor: pointer;
 }
 
 .circle{

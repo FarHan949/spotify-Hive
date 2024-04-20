@@ -25,12 +25,15 @@ async function getSong(){
 
 
 // play audio function 
-const playMusic= (audio) =>{
+const playMusic= (audio, pause=false) =>{
     // let track = new Audio("/song/" + audio)
     currentSong.src = "/song/" + audio
-    currentSong.play()
-    play.src = "svg/pause.svg"
-    document.querySelector('.songinfo').innerHTML = audio
+    if(!pause){
+
+        currentSong.play()
+        play.src = "svg/pause.svg"
+    }
+    document.querySelector('.songinfo').innerHTML = decodeURI(audio)
     document.querySelector('.songtime').innerHTML = "00:00 / 00:00"
 }
 
@@ -58,6 +61,7 @@ async function main(){
     let songs = await getSong()
     // console.log(songs)
 
+    playMusic(songs[0], true)
     // show all the song in the playlist 
     let songUl = document.querySelector('.songlist').getElementsByTagName('ul')[0]
     for (const song of songs) {
@@ -102,13 +106,21 @@ async function main(){
 
           if(!isNaN(currentSong.duration)){
             
-              document.querySelector(".songtime").innerHTML = `
-              ${secondsToMinutes(parseInt(currentSong.currentTime))}:
-              ${secondsToMinutes(parseInt(currentSong.duration))}`
-
+            document.querySelector(".songtime").innerHTML = `
+            ${secondsToMinutes(parseInt(currentSong.currentTime))}/
+            ${secondsToMinutes(parseInt(currentSong.duration))}`
+            document.querySelector('.circle').style.left = (currentSong.currentTime / currentSong.duration) * 100 + "%"
           }
       })
 
+    //   add an event listener to seekbar 
+    document.querySelector(".seekbar").addEventListener('click', (e)=>{
+       let percent = (e.offsetX/e.target.getBoundingClientRect().width) * 100
+    //    console.log(percent)
+       document.querySelector(".circle").style.left = percent + "%"
+    
+       currentSong.currentTime = ((currentSong.duration) * percent) / 100
+    })
 }
 
 main()
