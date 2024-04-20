@@ -54,7 +54,6 @@ function secondsToMinutes(seconds) {
 // main logic here 
 async function main(){
 
-
     // get the list of the all song 
     let songs = await getSong()
     // console.log(songs)
@@ -78,13 +77,12 @@ async function main(){
     // Add event listener to each song
    Array.from(document.querySelector(".songlist").getElementsByTagName("li")).forEach( e =>{
        e.addEventListener('click', element=>{
-
-           console.log(e.querySelector(".info").firstElementChild.innerText)
+        //    console.log(e.querySelector(".info").firstElementChild.innerText)
            playMusic(e.querySelector(".info").firstElementChild.innerText)
        })
    })
 
-
+   
 // Add event listener to each song next and previous 
     play.addEventListener("click", ()=>{
         if(currentSong.paused){
@@ -101,18 +99,16 @@ async function main(){
 
 //   Time update event 
       currentSong.addEventListener("timeupdate", ()=>{
-          console.log(parseInt(currentSong.currentTime))
 
           if(!isNaN(currentSong.duration)){
             
               document.querySelector(".songtime").innerHTML = `
-              ${secondsToMinutes(parseInt(currentSong.currentTime))}/
+              ${secondsToMinutes(parseInt(currentSong.currentTime))}:
               ${secondsToMinutes(parseInt(currentSong.duration))}`
 
           }
       })
 
 }
-
 
 main()
