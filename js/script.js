@@ -113,6 +113,8 @@ async function main(){
           }
       })
 
+
+
     //   add an event listener to seekbar 
     document.querySelector(".seekbar").addEventListener('click', (e)=>{
        let percent = (e.offsetX/e.target.getBoundingClientRect().width) * 100
@@ -121,6 +123,13 @@ async function main(){
     
        currentSong.currentTime = ((currentSong.duration) * percent) / 100
     })
+
+
+    //  add event listener for hamburger
+document.querySelector(".hamburger").addEventListener('click', ()=>{
+    document.querySelector(".left").style.left = "0"
+})
+
 }
 
 main()
