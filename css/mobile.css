@@ -75,8 +75,12 @@
 
     .card {
         width: 80vw;
+        margin-bottom: 5px;
     }
 
+    .card:hover{
+        background-color: #1d1717
+    }
     .cardContainer {
         margin: 0;
         justify-content: center; 

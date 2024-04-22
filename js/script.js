@@ -1,7 +1,7 @@
-console.log('lets go')
-
 //  global Variable
 let currentSong = new Audio();
+let songs;
+
 
 // get song function 
 async function getSong(){
@@ -24,7 +24,9 @@ async function getSong(){
 }
 
 
-// play audio function 
+
+
+       // play audio function 
 const playMusic= (audio, pause=false) =>{
     // let track = new Audio("/song/" + audio)
     currentSong.src = "/song/" + audio
@@ -58,7 +60,7 @@ function secondsToMinutes(seconds) {
 async function main(){
 
     // get the list of the all song 
-    let songs = await getSong()
+     songs = await getSong()
     // console.log(songs)
 
     playMusic(songs[0], true)
@@ -87,7 +89,7 @@ async function main(){
    })
 
    
-// Add event listener to each song next and previous 
+// Add event listener to play song  
     play.addEventListener("click", ()=>{
         if(currentSong.paused){
             currentSong.play()
@@ -99,6 +101,28 @@ async function main(){
         }
     })  
       
+    // Add event listener to  previous and next
+    previous.addEventListener('click', ()=>{
+        let index = songs.indexOf(currentSong.src.split("/").slice(-1)[0])
+       console.log('clicked next',index)
+       if((index-1) >= 0){
+
+           playMusic(songs[index-1])
+       }
+    })
+
+
+    next.addEventListener('click', () => {
+
+        currentSong.pause()
+        let index = songs.indexOf(currentSong.src.split("/").slice(-1)[0]);
+        console.log('clicked next', index);
+        if ((index + 1)  < songs.length) {
+            playMusic(songs[index + 1]); // Play the first song if index is not found or if it's the last song
+        }
+    });
+    
+    
 
 
 //   Time update event 

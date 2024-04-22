@@ -248,8 +248,8 @@ body{
     background-color: #e2e3e3;
     filter: invert(1);
     position: fixed;
-    height: 40px;
-    bottom: 20px;
+    height: 45px;
+    bottom: 30px;
     width: 72vw;
     padding: 12px;
     border-radius: 10px;
