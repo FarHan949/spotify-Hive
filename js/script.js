@@ -107,7 +107,7 @@ async function main(){
           if(!isNaN(currentSong.duration)){
             
             document.querySelector(".songtime").innerHTML = `
-            ${secondsToMinutes(parseInt(currentSong.currentTime))}/
+            ${secondsToMinutes(parseInt(currentSong.currentTime))} /
             ${secondsToMinutes(parseInt(currentSong.duration))}`
             document.querySelector('.circle').style.left = (currentSong.currentTime / currentSong.duration) * 100 + "%"
           }
@@ -125,11 +125,16 @@ async function main(){
     })
 
 
-    //  add event listener for hamburger
-document.querySelector(".hamburger").addEventListener('click', ()=>{
+    //  add event listener for hamburger and open song library
+    document.querySelector(".hamburger").addEventListener('click', ()=>{
     document.querySelector(".left").style.left = "0"
 })
-
+    //  add event listener for close || close the library 
+    document.querySelector(".close").addEventListener('click', ()=>{
+    document.querySelector(".left").style.left = "-130%"
+    document.querySelector(".left").style.transition = "all 1s"
+})
+     
 }
 
 main()
