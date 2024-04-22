@@ -291,15 +291,36 @@ body{
     left: -2px;
     transition: left 0.5s;
 }
+.timevol{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
 
 .songinfo{
     width: 180px;
-    font-size: 10px
+    font-size: 14px;
+    word-break: break-all;
 }
 
 .songinfo, .songtime{
     color: black;
     padding: 0 10px;
+}
+
+.songtime{
+    width: 125px;
+}
+
+.volume {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   gap: 10px;
+}
+
+.range{
+    cursor: pointer;
 }
 
 .bar{

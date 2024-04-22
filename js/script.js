@@ -104,7 +104,7 @@ async function main(){
     // Add event listener to  previous and next
     previous.addEventListener('click', ()=>{
         let index = songs.indexOf(currentSong.src.split("/").slice(-1)[0])
-       console.log('clicked next',index)
+    //    console.log('clicked next',index)
        if((index-1) >= 0){
 
            playMusic(songs[index-1])
@@ -116,7 +116,7 @@ async function main(){
 
         currentSong.pause()
         let index = songs.indexOf(currentSong.src.split("/").slice(-1)[0]);
-        console.log('clicked next', index);
+        // console.log('clicked next', index);
         if ((index + 1)  < songs.length) {
             playMusic(songs[index + 1]); // Play the first song if index is not found or if it's the last song
         }
@@ -152,12 +152,12 @@ async function main(){
     //  add event listener for hamburger and open song library
     document.querySelector(".hamburger").addEventListener('click', ()=>{
     document.querySelector(".left").style.left = "0"
-})
+    })
     //  add event listener for close || close the library 
     document.querySelector(".close").addEventListener('click', ()=>{
     document.querySelector(".left").style.left = "-130%"
     document.querySelector(".left").style.transition = "all 1s"
-})
+    })
      
 }
 
