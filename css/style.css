@@ -71,7 +71,7 @@ body{
 /* library song list  */
 
 .songlist{
-    height: 350px;
+    height: 400px;
     overflow: auto;
     margin-bottom:44px ;
 }
@@ -234,7 +234,7 @@ body{
     bottom: 85px;
     right: 16px;
     opacity: var(--a);
-    transition: all 1s ease-out;
+    transition: all 1.3s ease-out;
 }
 
 .card h2{
