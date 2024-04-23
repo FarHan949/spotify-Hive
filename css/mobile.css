@@ -1,4 +1,4 @@
-@media (max-width: 1360px) {
+@media (max-width: 1100px) {
     .left {
         position: absolute;
         left: -140%;
@@ -14,7 +14,7 @@
 
     .songinfo,
     .songtime {
-        width: auto;
+       word-break: break-all;
     }
 
     .left .close {
@@ -61,7 +61,7 @@
 
     .seekbar {
         width: calc(100vw - 120px);
-        bottom: 7px;
+        bottom: 10px;
         left: 20px;
     }
 
@@ -103,13 +103,13 @@
     }
 
     .playbar {
-        right: 17px;
-        height: 129px;
+        right: 18px;
+        height: 135px;
         width: 85vw;
         bottom: 5px;
     }
 
     .playbar > div{
-        gap: 3px;
+        gap: 5px;
     }
 }

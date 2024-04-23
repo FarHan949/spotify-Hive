@@ -142,7 +142,6 @@ async function main(){
     //   add an event listener to seekbar 
     document.querySelector(".seekbar").addEventListener('click', (e)=>{
        let percent = (e.offsetX/e.target.getBoundingClientRect().width) * 100
-    //    console.log(percent)
        document.querySelector(".circle").style.left = percent + "%"
     
        currentSong.currentTime = ((currentSong.duration) * percent) / 100
@@ -159,6 +158,15 @@ async function main(){
     document.querySelector(".left").style.transition = "all 1s"
     })
      
+    // add event listener to volume 
+    document.querySelector(".rang").getElementsByTagName("input")[0].addEventListener('change', (e)=>{
+        // console.log("Setting volume to", e.target.value, "/ 100")
+        currentSong.volume = parseInt(e.target.value)/100
+        // if (currentSong.volume > 0){
+        //     document.querySelector(".volume>img").src = document.querySelector(".volume>img").src.replace("svg/mute.svg", "volume.svg")
+        // }
+    }) 
+    
 }
 
 main()
