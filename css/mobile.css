@@ -12,9 +12,17 @@
         top: 0;
     }
 
+    .songinfo{
+        width: 90%;
+        position: fixed;
+    }
     .songinfo,
     .songtime {
        word-break: break-all;
+    }
+
+    .songsbutton{
+        margin-top: 36px;
     }
 
     .left .close {

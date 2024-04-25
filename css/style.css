@@ -71,7 +71,7 @@ body{
 /* library song list  */
 
 .songlist{
-    height: 400px;
+    height: 350px;
     overflow: auto;
     margin-bottom:44px ;
 }
@@ -85,9 +85,9 @@ body{
     align-items: center;
     justify-content:space-between;
     gap: 10px;
-    padding: 10px 5px;
+    padding: 8px 5px;
     border: 1px solid whitesmoke;
-    margin: 8px 0;
+    margin: 6px 0;
     border-radius: 5px
 }
 

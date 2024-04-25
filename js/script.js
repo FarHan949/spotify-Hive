@@ -46,15 +46,7 @@ async function getSong(folder){
        // console.log(e.querySelector(".info").firstElementChild.innerText)
           playMusic(e.querySelector(".info").firstElementChild.innerText)
 
-        //   if(e.querySelector(".playnow").lastElementChild.src.endsWith("svg/play.svg")){
-        //     e.querySelector(".playnow").lastElementChild.src = "svg/pause.svg"
-        //     currentSong.play()
-        //   }
-        //   else{
-        //     e.querySelector(".playnow").lastElementChild.src = "svg/play.svg"
-           
-        //     currentSong.pause()
-        //   }
+        
       })
   })
 
@@ -133,9 +125,10 @@ async function displayAlbum(){
     Array.from(document.getElementsByClassName("card")).forEach(e=>{
         e.addEventListener('click', async item=>{
             songs = await getSong(`song/${item.currentTarget.dataset.folder}`)
-            
+            playMusic(songs[0])
         })
     })
+    return songs
 }
 
 
