@@ -10,7 +10,7 @@ async function getSong(folder){
     currentFolder = folder
     let a = await fetch(`http://127.0.0.1:5500/${folder}/`)
     let response = await a.text()
-    // console.log(response)
+
     let div = document.createElement('div')
     div.innerHTML = response
     let anchor  = div.getElementsByTagName("a")
@@ -35,7 +35,7 @@ async function getSong(folder){
                        </div>
                        <div class="playnow">
                            <span>Play Now</span>
-                           <img class="invert" src="svg/play.svg" alt="">
+                           <img class="invert" src="svg/play.svg">
                        </div></li>`
    }
 
@@ -43,8 +43,18 @@ async function getSong(folder){
    // Add event listener to each song
   Array.from(document.querySelector(".songlist").getElementsByTagName("li")).forEach( e =>{
       e.addEventListener('click', element=>{
-       //    console.log(e.querySelector(".info").firstElementChild.innerText)
+       // console.log(e.querySelector(".info").firstElementChild.innerText)
           playMusic(e.querySelector(".info").firstElementChild.innerText)
+
+        //   if(e.querySelector(".playnow").lastElementChild.src.endsWith("svg/play.svg")){
+        //     e.querySelector(".playnow").lastElementChild.src = "svg/pause.svg"
+        //     currentSong.play()
+        //   }
+        //   else{
+        //     e.querySelector(".playnow").lastElementChild.src = "svg/play.svg"
+           
+        //     currentSong.pause()
+        //   }
       })
   })
 
@@ -98,11 +108,10 @@ async function displayAlbum(){
         if(e.href.includes("/song/")){
             let folder = e.href.split("/").slice(-1)[0]
         
-
         //    get the metadata of the folder 
         let a = await fetch(`http://127.0.0.1:5500/song/${folder}/info.json`)
         let response = await a.json()
-        // console.log(response)
+        
         cardContainer.innerHTML = cardContainer.innerHTML + `<div data-folder="weekend" class="card">
         <div class="play">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" color="#000000" fill="none">
@@ -136,7 +145,6 @@ async function main(){
 
     // get the list of the all song 
      await getSong(`song/cps`)
-    // console.log(songs)
 
     playMusic(songs[0], true)
 
@@ -159,9 +167,8 @@ async function main(){
     // Add event listener to  previous and next
     previous.addEventListener('click', ()=>{
         let index = songs.indexOf(currentSong.src.split("/").slice(-1)[0])
-    //    console.log('clicked next',index)
-       if((index-1) >= 0){
 
+       if((index-1) >= 0){
            playMusic(songs[index-1])
        }
     })
@@ -171,7 +178,7 @@ async function main(){
 
         currentSong.pause()
         let index = songs.indexOf(currentSong.src.split("/").slice(-1)[0]);
-        // console.log('clicked next', index);
+        
         if ((index + 1)  < songs.length) {
             playMusic(songs[index + 1]); // Play the first song if index is not found or if it's the last song
         }
@@ -215,11 +222,24 @@ async function main(){
         // console.log("Setting volume to", e.target.value, "/ 100")
         currentSong.volume = parseInt(e.target.value)/100
         // if (currentSong.volume > 0){
-        //     document.querySelector(".volume>img").src = document.querySelector(".volume>img").src.replace("svg/mute.svg", "volume.svg")
+        //     document.querySelector(".imgVolume").src = document.querySelector(".imgVolume").src.replace("svg/mute.svg", "volume.svg")
         // }
     }) 
 
-    
+
+    // Add event listener mute the volume 
+    document.querySelector(".imgVolume").addEventListener('click', e=>{
+        
+        if (e.target.src.endsWith("svg/volume.svg")) {
+            document.querySelector(".rang").getElementsByTagName("input")[0].value = 0
+            e.target.src = "svg/mute.svg";
+            currentSong.volume = 0;
+        } else {
+            document.querySelector(".rang").getElementsByTagName("input")[0].value = 10
+            e.target.src = "svg/volume.svg";
+            currentSong.volume = .10;
+        }
+    })
     
 }
 
