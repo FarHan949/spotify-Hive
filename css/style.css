@@ -306,14 +306,14 @@ body{
 }
 
 .songinfo{
-    width: 180px;
+    width: 20%;;
     font-size: 14px;
     word-break: break-all;
 }
 
 .songinfo, .songtime{
     color: black;
-    padding: 0 10px;
+    padding: 0 8px;
 }
 
 .songtime{
