@@ -112,7 +112,7 @@ async function displayAlbum(){
         let a = await fetch(`http://127.0.0.1:5500/song/${folder}/info.json`)
         let response = await a.json()
         
-        cardContainer.innerHTML = cardContainer.innerHTML + `<div data-folder="weekend" class="card">
+        cardContainer.innerHTML = cardContainer.innerHTML + `<div data-folder="${folder}" class="card">
         <div class="play">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" color="#000000" fill="none">
                     <path d="M18.8906 12.846C18.5371 14.189 16.8667 15.138 13.5257 17.0361C10.296 18.8709 8.6812 19.7884 7.37983 19.4196C6.8418 
@@ -162,6 +162,7 @@ async function main(){
             currentSong.pause()
             play.src = "svg/play.svg"
         }
+        
     })  
       
     // Add event listener to  previous and next

@@ -200,7 +200,7 @@ body{
     border-radius: 8px;
     flex-direction: column;
     display: flex;
-    width: 180px;
+    width: 185px;
     position: relative;
     cursor: pointer;
 }
