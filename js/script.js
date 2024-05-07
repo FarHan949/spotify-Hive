@@ -10,7 +10,6 @@ async function getSong(folder){
     currentFolder = folder
     let a = await fetch(`http://127.0.0.1:5500/${folder}/`)
     let response = await a.text()
-
     let div = document.createElement('div')
     div.innerHTML = response
     let anchor  = div.getElementsByTagName("a")
@@ -55,8 +54,23 @@ async function getSong(folder){
 
 
 
+//convert milisecound to second
+function secondsToMinutes(seconds) {
+    // Calculate minutes and remaining seconds
+    let minutes = Math.floor(seconds / 60);
+    let remainingSeconds = seconds % 60;
 
-       // play audio function 
+    // Format minutes and seconds with leading zeros if needed
+    let formattedMinutes = minutes < 10 ? '0' + minutes : minutes;
+    let formattedSeconds = remainingSeconds < 10 ? '0' + remainingSeconds : remainingSeconds;
+
+    // Return the formatted string
+    return formattedMinutes + ':' + formattedSeconds;
+}
+    
+
+
+// play audio function 
 const playMusic= (audio, pause=false) =>{
     currentSong.src = `/${currentFolder}/` + audio
     if(!pause){
@@ -78,21 +92,6 @@ const playMusic= (audio, pause=false) =>{
 
 
 
-
-function secondsToMinutes(seconds) {
-    // Calculate minutes and remaining seconds
-    var minutes = Math.floor(seconds / 60);
-    var remainingSeconds = seconds % 60;
-
-    // Format minutes and seconds with leading zeros if needed
-    var formattedMinutes = minutes < 10 ? '0' + minutes : minutes;
-    var formattedSeconds = remainingSeconds < 10 ? '0' + remainingSeconds : remainingSeconds;
-
-    // Return the formatted string
-    return formattedMinutes + ':' + formattedSeconds;
-}
-
-
 async function displayAlbum(){
     let a = await fetch(`http://127.0.0.1:5500/song/`)
     let response = await a.text()
@@ -109,7 +108,7 @@ async function displayAlbum(){
             let folder = e.href.split("/").slice(-1)[0]
         
         //    get the metadata of the folder 
-        let a = await fetch(`http://127.0.0.1:5500/song/${folder}/info.json`)
+        let a = await fetch(`/song/${folder}/info.json`)
         let response = await a.json()
         
         cardContainer.innerHTML = cardContainer.innerHTML + `<div data-folder="${folder}" class="card">
@@ -145,7 +144,7 @@ async function displayAlbum(){
 async function main(){
 
     // get the list of the all song 
-     await getSong(`song/cps`)
+     await getSong(`song/`)
 
     playMusic(songs[0], true)
 
@@ -174,7 +173,6 @@ async function main(){
            playMusic(songs[index-1])
        }
     })
-
 
     next.addEventListener('click', () => {
 
@@ -216,7 +214,7 @@ async function main(){
     //  add event listener for close || close the library 
     document.querySelector(".close").addEventListener('click', ()=>{
     document.querySelector(".left").style.left = "-130%"
-    document.querySelector(".left").style.transition = "all 1s"
+    document.querySelector(".left").style.transition = "all 1.2s"
     })
      
     // add event listener to volume 
@@ -240,6 +238,7 @@ async function main(){
             document.querySelector(".rang").getElementsByTagName("input")[0].value = 10
             e.target.src = "svg/volume.svg";
             currentSong.volume = .10;
+            
         }
     })
     
