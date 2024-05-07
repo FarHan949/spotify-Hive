@@ -8,7 +8,7 @@ let currentFolder;
 // get song function 
 async function getSong(folder){
     currentFolder = folder
-    let a = await fetch(`http://127.0.0.1:5500/${folder}/`)
+    let a = await fetch(`/${folder}/`)
     let response = await a.text()
     let div = document.createElement('div')
     div.innerHTML = response
@@ -93,7 +93,7 @@ const playMusic= (audio, pause=false) =>{
 
 
 async function displayAlbum(){
-    let a = await fetch(`http://127.0.0.1:5500/song/`)
+    let a = await fetch(`/song/`)
     let response = await a.text()
     let div = document.createElement('div')
     div.innerHTML = response
